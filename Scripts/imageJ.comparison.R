@@ -24,6 +24,16 @@ col.traits = c("#F8766D", "#CD9600", "#7CAE00", "#00BE67",
 
 #### LOAD DATA ----
 
+##### MEASUREMENTS FROM ORR ET AL. ----
+orr <- read.csv("./Data/Orr_etal_Results.csv",
+                header = TRUE)
+# first line is the scale
+scale <- 1/orr[1,]$Length #scale is super small...
+
+orr.zoo <- orr[2:4,]
+orr.zoo$zh.scale <- orr.zoo$Length*scale
+orr.zoo$ln.zh <- log(orr.zoo$zh.scale)
+
 ###### LOOK AT RESULTS FROM IMG J -----
 table(sm.zoo$colony.id)
 unique(sm.zoo$imageName[sm.zoo$colony.id == "077CV"]) #from images 1, 2, 3
