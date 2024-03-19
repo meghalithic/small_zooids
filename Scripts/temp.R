@@ -31,11 +31,11 @@ plot(cr.wid ~ cr.temps)
 #Haplopoma sciaphium
 #units are um
 hs.temps <- c()
-hs.temps[1] <- mean(12, 23)
-hs.temps[2] <- mean(9, 12)
-hs.temps[3] <- mean(1, 17)
+hs.temps[1] <- mean(c(12, 23))
+hs.temps[2] <- mean(c(9, 12))
+hs.temps[3] <- mean(c(1, 17))
 hs.len <- c(440.2, 501.7, 566.8)
-summary(lm(hs.len ~ hs.temps)) #slope = -10.814
+summary(lm(hs.len ~ hs.temps)) #slope = -12.990
 
 plot(hs.len ~ hs.temps)
 
@@ -61,3 +61,16 @@ plot(pf.wid ~ pf.mart)
 
 plot(pf.len ~ pf.mat)
 plot(pf.wid ~ pf.mat)
+
+#difference in small zooids to large zooids is ~400µm:
+#y = mx + b
+#y = zh
+#figuring out x
+#based on ep:
+(400/704.738)+6.429 #6.996587 ˚C of temp change
+#based on cr:
+(400/627.7900)+5.8925 #6.529656 ˚C of temp change
+#based on hs:
+(400/663.109)+12.990 #13.59322 ˚C of temp change
+#based on pf:
+(400/16.824420)+0.002522 #23.77749 ˚C of temp change
